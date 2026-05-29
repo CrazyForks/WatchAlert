@@ -190,6 +190,7 @@ func (n noticeService) Test(req interface{}) (interface{}, interface{}) {
 	err := mediums.Tester(n.ctx, mediums.SendParams{
 		NoticeType: r.NoticeType,
 		Hook:       r.Hook,
+		Headers:    r.Headers,
 		Email:      r.Email,
 		Phone:      r.Phone,
 		SMS:        r.SMS,

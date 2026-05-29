@@ -21,15 +21,15 @@ var WebhookTestContent = fmt.Sprintf(`{
 func NewWebHookSender() SendInter { return &WebHookSender{} }
 
 func (w *WebHookSender) Send(params SendParams) error {
-	return w.post(params.Hook, params.Content)
+	return w.post(params.Hook, params.Headers, params.Content)
 }
 
 func (w *WebHookSender) Test(params SendParams) error {
-	return w.post(params.Hook, WebhookTestContent)
+	return w.post(params.Hook, params.Headers, WebhookTestContent)
 }
 
-func (w *WebHookSender) post(hook, content string) error {
-	res, err := tools.Post(nil, hook, bytes.NewReader([]byte(content)), 10)
+func (w *WebHookSender) post(hook string, headers map[string]string, content string) error {
+	res, err := tools.Post(headers, hook, bytes.NewReader([]byte(content)), 10)
 	if err != nil {
 		return err
 	}

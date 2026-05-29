@@ -29,6 +29,8 @@ type (
 		IsRecovered bool
 		// hook 地址
 		Hook string
+		// 自定义请求头
+		Headers map[string]string
 		// 邮件
 		Email models.Email
 		// 短信

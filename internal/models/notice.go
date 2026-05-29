@@ -26,6 +26,8 @@ type Route struct {
 	Severitys []string `json:"severitys"`
 	// WebHook
 	Hook string `json:"hook"`
+	// 自定义请求头
+	Headers map[string]string `json:"headers" gorm:"column:headers;serializer:json"`
 	// 签名
 	Sign string `json:"sign"`
 	// 邮件主题

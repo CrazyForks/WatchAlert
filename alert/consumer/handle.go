@@ -120,6 +120,7 @@ func handleAlert(ctx *ctx.Context, processType string, faultCenter models.FaultC
 						NoticeName:  noticeData.Name,
 						IsRecovered: event.IsRecovered,
 						Hook:        route.Hook,
+						Headers:     route.Headers,
 						Email:       email,
 						Phone:       phone,
 						SMS:         sms,

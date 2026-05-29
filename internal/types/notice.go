@@ -39,10 +39,11 @@ type RequestNoticeQuery struct {
 }
 
 type RequestNoticeTest struct {
-	NoticeType string       `json:"noticeType"`
-	Hook       string       `json:"hook"`
-	Sign       string       `json:"sign"`
-	Email      models.Email `json:"email"`
-	Phone      models.Phone `json:"phone"`
-	SMS        models.SMS   `json:"sms"`
+	NoticeType string            `json:"noticeType"`
+	Hook       string            `json:"hook"`
+	Headers    map[string]string `json:"headers"`
+	Sign       string            `json:"sign"`
+	Email      models.Email      `json:"email"`
+	Phone      models.Phone      `json:"phone"`
+	SMS        models.SMS        `json:"sms"`
 }

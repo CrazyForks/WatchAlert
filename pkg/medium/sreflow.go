@@ -9,25 +9,25 @@ import (
 )
 
 type (
-	// WebHookSender 自定义Hook发送策略
-	WebHookSender struct{}
+	// SREFlowSender
+	SREFlowSender struct{}
 )
 
-var WebhookTestContent = fmt.Sprintf(`{
+var SREFlowTestContent = fmt.Sprintf(`{
   "text": "%s"
 }`, RobotTestContent)
 
-func NewWebHookSender() SendInter { return &WebHookSender{} }
+func NewSREFlowSender() SendInter { return &SREFlowSender{} }
 
-func (w *WebHookSender) Send(params SendParams) error {
+func (w *SREFlowSender) Send(params SendParams) error {
 	return w.post(params.Hook, params.Headers, params.Content)
 }
 
-func (w *WebHookSender) Test(params SendParams) error {
-	return w.post(params.Hook, params.Headers, WebhookTestContent)
+func (w *SREFlowSender) Test(params SendParams) error {
+	return w.post(params.Hook, params.Headers, SREFlowTestContent)
 }
 
-func (w *WebHookSender) post(hook string, headers map[string]string, content string) error {
+func (w *SREFlowSender) post(hook string, headers map[string]string, content string) error {
 	res, err := tools.Post(headers, hook, bytes.NewReader([]byte(content)), 10)
 	if err != nil {
 		return err

@@ -106,6 +106,8 @@ func senderFactory(noticeType string) (SendInter, error) {
 		return getSMSSender()
 	case "Phone":
 		return getPhoneSender()
+	case "SREFlow":
+		return NewSREFlowSender(), nil
 	default:
 		return nil, fmt.Errorf("无效的通知类型: %s", noticeType)
 	}

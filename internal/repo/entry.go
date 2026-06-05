@@ -41,6 +41,9 @@ type (
 		ApiKey() InterApiKeyRepo
 		RecordingRule() InterRecordingRuleRepo
 		RecordingRuleGroup() InterRecordingRuleGroupRepo
+		PrometheusTargetGroup() InterPrometheusTargetGroupRepo
+		PrometheusTarget() InterPrometheusTargetRepo
+		PrometheusTargetVersion() InterPrometheusTargetVersionRepo
 	}
 )
 
@@ -97,4 +100,13 @@ func (e *entryRepo) RecordingRule() InterRecordingRuleRepo {
 }
 func (e *entryRepo) RecordingRuleGroup() InterRecordingRuleGroupRepo {
 	return newRecordingRuleGroupInterface(e.db, e.g)
+}
+func (e *entryRepo) PrometheusTargetGroup() InterPrometheusTargetGroupRepo {
+	return newPrometheusTargetGroupInterface(e.db, e.g)
+}
+func (e *entryRepo) PrometheusTarget() InterPrometheusTargetRepo {
+	return newPrometheusTargetInterface(e.db, e.g)
+}
+func (e *entryRepo) PrometheusTargetVersion() InterPrometheusTargetVersionRepo {
+	return newPrometheusTargetVersionInterface(e.db, e.g)
 }

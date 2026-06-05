@@ -39,6 +39,7 @@ var (
 	ApiKeyService             InterApiKeyService
 	RecordingRuleService      InterRecordingRuleService
 	RecordingRuleGroupService InterRecordingRuleGroupService
+	PrometheusService         InterPrometheusService
 )
 
 func NewServices(ctx *ctx.Context) {
@@ -74,4 +75,5 @@ func NewServices(ctx *ctx.Context) {
 	ApiKeyService = newInterApiKeyService(ctx)
 	RecordingRuleService = newInterRecordingRuleService(ctx)
 	RecordingRuleGroupService = newInterRecordingRuleGroupService(ctx)
+	PrometheusService = newInterPrometheusService(ctx)
 }

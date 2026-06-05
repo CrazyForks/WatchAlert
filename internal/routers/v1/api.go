@@ -49,6 +49,7 @@ func Router(engine *gin.Engine) {
 			api.ApiKeyController.API(w8t)
 			api.RecordingRuleGroupController.API(w8t)
 			api.RecordingRuleController.API(w8t)
+			api.PrometheusController.API(w8t)
 		}
 
 		oidc := v1.Group("oidc")

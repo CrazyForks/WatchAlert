@@ -126,4 +126,13 @@ var AuditEventMap = map[string]string{
 
 	// ========== AI 相关 ==========
 	"/api/w8t/ai/chat": "AI对话",
+
+	// ========== 服务发现相关 ==========
+	"/api/w8t/prometheus/targetGroupCreate": "创建服务组",
+	"/api/w8t/prometheus/targetGroupUpdate": "更新服务组",
+	"/api/w8t/prometheus/targetGroupDelete": "删除服务组",
+	"/api/w8t/prometheus/targetCreate":     "创建服务",
+	"/api/w8t/prometheus/targetUpdate":     "更新服务",
+	"/api/w8t/prometheus/targetDelete":     "删除服务",
+	"/api/w8t/prometheus/targetVersionRollback": "回滚服务版本",
 }

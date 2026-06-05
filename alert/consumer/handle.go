@@ -210,7 +210,7 @@ type WebhookContent struct {
 
 // generateAlertContent 生成告警内容
 func generateAlertContent(ctx *ctx.Context, alert *models.AlertCurEvent, noticeData models.AlertNotice, route models.Route) string {
-	if route.NoticeType == "WebHook" {
+	if route.NoticeType == "WebHook" || route.NoticeType == "SREFlow" {
 		users, ok := ctx.DB.DutyCalendar().GetDutyUserData(*noticeData.GetDutyId(), time.Now().Format("2006-1-2"))
 		if !ok || len(users) == 0 {
 			logc.Error(ctx.Ctx, "Failed to get duty users, noticeName: ", noticeData.Name)
@@ -256,7 +256,7 @@ func getDutyUsers(ctx *ctx.Context, noticeData models.AlertNotice, noticeType st
 				us = append(us, fmt.Sprintf("@%s", user.DutyUserId))
 			}
 			return us
-		case "Email", "WeChat", "WebHook":
+		case "Email", "WeChat", "WebHook", "SREFlow":
 			for _, user := range users {
 				us = append(us, fmt.Sprintf("@%s", user.UserName))
 			}
